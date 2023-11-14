@@ -6,9 +6,8 @@ Escribir un programa que almacene las asignaturas de un curso (por ejemplo Matem
 
 
 def pedirAsignaturas(numeroAsignaturas):
-    tuplaAsignaturas = tuple(input("Introduce asignatura: ") for _ in range(numeroAsignaturas))
-    
-    return tuplaAsignaturas
+
+    return list(input("Introduce asignatura: ") for _ in range(numeroAsignaturas))
     
 
 
@@ -17,7 +16,7 @@ def main():
     numeroAsignaturas = int(input("Cuantas asignaturas vas a introducir?: "))
     print(pedirAsignaturas(numeroAsignaturas))
 
-    
+# (["matematicas", 2],["lengua",3]) o
 
 if __name__ == "__main__":
     main()
