@@ -10,27 +10,14 @@ def introducirNumeros():
         try:    
             numero = int(input(""))
             if numero < 1 or numero > 49:
-                raise NameError("error")
+                raise TypeError("Error - debe introducir un numero dentro del rango 1-49 incluidos")
             ok = True
-        except NameError:
-            print("Numero ha de estar entre 1-49 incluidos")
+        except TypeError as e:
+            print(str(e))
         except Exception:
-            print("Debe ser un valor numerico")
+            print("Debe introducir un valor numerico")
    
     return int(numero)
-
-
-
-def pedirReintegro():
-    ok = False
-    while not ok:
-        try:
-            reintegro = int("Introduce reintegro: ")
-            if reintegro < 1 or reintegro > 9:
-                raise ValueError ("Numero incorrecto (1-9)")
-            ok = True
-        except ValueError:
-            print("ERROR")
 
 
 
@@ -40,16 +27,49 @@ def listaNumeros():
     while len(lista) < 6:
         lista.append(introducirNumeros())
     
+    lista.sort()
+    
     return lista
 
 
 
+def pedirReintegro():
+    ok = False
+    while not ok:
+        try:
+            reintegro = int(input(""))
+            if reintegro < 1 or reintegro > 9:
+                raise TypeError ("Error - debe introducir un numero dentro del rango 1-9 incluidos")
+            ok = True
+        except TypeError as e:
+            print(str(e))
+        except Exception:
+            print("Debe introducir un valor numerico")
+
+    return int(reintegro)
+
+
+
+def mostrarLista(lista):
+    listaFormateada = ""
+
+    for i in lista:
+        listaFormateada += ", ".join(str(i))
+
+    return listaFormateada
+
+
 def main():
     
-    print("Introduce numeros")
+    print("Introduce numeros: ")
+    lista = listaNumeros()
 
-    print(listaNumeros())
+    print("Introduce reintegro: ")
+    reintegro = pedirReintegro()
 
+    lista.append(reintegro)
+
+    print("Numeros ordenados y reintegro: " + ", ".join(mostrarLista(lista)))
 
 
 
