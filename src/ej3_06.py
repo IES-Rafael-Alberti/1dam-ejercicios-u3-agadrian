@@ -10,11 +10,24 @@ def pedirAsignaturas(numeroAsignaturas):
     return list(input("Introduce asignatura: ") for _ in range(numeroAsignaturas))
     
 
+def asignarNota(asignaturas):
 
+    for i in range(len(asignaturas)):
+        nota = input("Introduce nota (" + asignaturas[i] + "): ")
+        asignaturas[i] = list((asignaturas[i],nota))
+
+    return asignaturas
+
+def oredenarNotas(asignaturas):
+
+    #asignaturas[i][1]
 
 def main():
     numeroAsignaturas = int(input("Cuantas asignaturas vas a introducir?: "))
-    print(pedirAsignaturas(numeroAsignaturas))
+    asignaturas = pedirAsignaturas(numeroAsignaturas)
+    asignaturasNotas = asignarNota(asignaturas)
+    print(asignaturasNotas)
+    print(asignaturasNotas.sort())
 
 # (["matematicas", 2],["lengua",3]) o
 
