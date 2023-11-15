@@ -5,6 +5,7 @@ Escribir un programa que almacene las asignaturas de un curso (por ejemplo Matem
 """
 
 
+
 def pedirAsignaturas(numeroAsignaturas):
 
     return list(input("Introduce asignatura: ") for _ in range(numeroAsignaturas))
@@ -18,18 +19,29 @@ def asignarNota(asignaturas):
 
     return asignaturas
 
-def oredenarNotas(asignaturas):
+def oredenarNotas(asignaturasNotas):
+    listaOrdenada = sorted(asignaturasNotas, key=lambda x: x[1])
+    
+    return listaOrdenada
 
-    #asignaturas[i][1]
+def eliminarAprobadas(listaOrdenada):
+    listaFinal = listaOrdenada.copy()
+    for i in range(len(listaOrdenada)):
+        if int(listaOrdenada[i][1]) >= 5:
+            listaFinal.pop()
+    return listaFinal
+
 
 def main():
     numeroAsignaturas = int(input("Cuantas asignaturas vas a introducir?: "))
+    
     asignaturas = pedirAsignaturas(numeroAsignaturas)
     asignaturasNotas = asignarNota(asignaturas)
-    print(asignaturasNotas)
-    print(asignaturasNotas.sort())
+    listaOrdenada = oredenarNotas(asignaturasNotas)
+    listaFinal = eliminarAprobadas(listaOrdenada)
+    
+    print("Debes repetir las asignaturas: " + str(listaFinal))
 
-# (["matematicas", 2],["lengua",3]) o
 
 if __name__ == "__main__":
     main()
