@@ -10,19 +10,35 @@ def pedirPalabra():
     return palabra
 
 
-def comprobarPalindromo(palabra):
-    pass
+
+def comprobarPalindromo(palabra: str) -> bool:
+    """
+    Comprueba si la palabra introducida es un palindromo
+
+    Args: 
+        palabra (str): palabra a comprobar
+
+    Retorna:
+            True: si es palindromo
+            False: si no es palindromo
+    """
+    if palabra == palabra[::-1]:
+        return True
+    else:
+        return False
+
+
 
 def main():
-    pass
+
+    if comprobarPalindromo(pedirPalabra()):
+        print("Es un palindromo")
+    else:
+        print("No es palindromo")
+
+
 
 if __name__ == "__main__":
     main()
 
 
-pal = "ana"
-
-if pal == pal[::-1]:
-    print("si")
-else:
-    print("no")
