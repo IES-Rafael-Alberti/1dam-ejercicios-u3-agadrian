@@ -146,7 +146,7 @@ def jugar(tablero: tuple):
 
 
 
-
+#
 def main():
     
     tablero = crearTablero()
