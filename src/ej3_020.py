@@ -23,16 +23,16 @@ def añadirArticulos(listaCompra: dict) -> dict:
             precio = float(input("Precio del articulo: "))
             listaCompra[articulo] = precio
     
-    return listaCompra
+   
      
 
 
 def mostrarLista(listaCompra:dict):
     total = 0
     print("\nLista de la compra")
-    for k,v in listaCompra.items():
-        print(f"{k}: {v}€")
-        total += v
+    for articulo,precio in listaCompra.items():
+        print(f"{articulo}: {precio}€")
+        total += precio
     print(f"\nTotal compra: {total}€")
 
 
