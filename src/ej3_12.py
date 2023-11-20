@@ -20,7 +20,7 @@ def main():
 
     print(f"{lista1} x {lista2} => {repeticiones(lista1, lista2)}")
     
-
+   
     
 if __name__ == "__main__":
     main()

@@ -22,7 +22,7 @@ def main():
     print("Introduce tus datos: ")
     datos = pedirDatos()
 
-    print(f"{datos["nombre"].capitalize()} tiene {datos["edad"]} años, vive en {datos["direccion"]} y su numero de telefono es {datos["telefono"]}.")
+    print(f"{datos['nombre'].capitalize()} tiene {datos['edad']} años, vive en {datos['direccion']} y su numero de telefono es {datos['telefono']}.")
 
 
 

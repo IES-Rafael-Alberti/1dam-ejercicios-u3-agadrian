@@ -18,7 +18,7 @@ def main():
     divisa = input("Introduce divisa a comprobar: ").lower()
     
     if comprobarDivisa(diccionario, divisa):
-        print("Tu divisa esta en el diccionario")
+        print(f"Tu divisa esta en el diccionario:  {diccionario[divisa]}")
     else:
         print("No esta en el diccionario")
     

@@ -6,12 +6,13 @@ Escribir un programa que pida al usuario una palabra y muestre por pantalla si e
 
 def pedirPalabra():
     palabra = input("Palabra a comprobar si es palindromo: ")
+    palabra = list(palabra)
 
     return palabra
 
 
 
-def comprobarPalindromo(palabra: str) -> bool:
+def comprobarPalindromo(palabra: dict) -> bool:
     """
     Comprueba si la palabra introducida es un palindromo
 
