@@ -13,14 +13,14 @@ def crearDiccionario(palabras:str) -> dict:
 
 
 def traducirFrase(frase:str, diccionario:dict):
- """   palabras = frase.split(' ')
+    palabras = frase.split(' ')
 
     for palabra in palabras:
         for i in diccionario:
             if palabra == i:
-                palabras.replace(palabra, diccionario.get[diccionario[i]])
+                palabras.replace(palabra, diccionario.get(diccionario[i]))
                 
-    return palabras"""
+    return palabras
         
 
 
