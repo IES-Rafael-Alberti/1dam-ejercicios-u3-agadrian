@@ -8,6 +8,8 @@ Preguntar por el NIF del cliente y mostrar sus datos.
 Mostrar lista de todos los clientes de la base datos con su NIF y nombre.
 Mostrar la lista de clientes preferentes de la base de datos con su NIF y nombre.
 Terminar el programa.
+
+
 """
 
 def mostrar_menu():
@@ -26,34 +28,45 @@ def agregar_cliente(base_datos):
     direccion = input("Ingrese la dirección del cliente: ")
     telefono = input("Ingrese el teléfono del cliente: ")
     correo = input("Ingrese el correo del cliente: ")
-    preferente = input("¿Es cliente preferente? (Sí/No): ").lower() == 'sí'
+    preferente = input("¿Es cliente preferente? (Si/No): ").lower() == 'si' # Si introduce SI, Si, sI o si, sera True, cualquier otra cosa False
 
-    #TODO: Crear un diccionario cliente con toda la información...
-    ???
+    datos_clientes = {
+        "nif": nif,
+        "nombre": nombre,
+        "direccion": direccion,
+        "telefono": telefono,
+        "correo": correo,
+        "preferente": preferente
+    }
 
-    #TODO: Añadir el diccionario cliente que previamente has creado al 
-    # diccionario principal que hemos llamado base_datos...
-    ???
+    base_datos[nif] = datos_clientes
 
     print(f"Cliente {nombre} añadido correctamente.")
 
 
+
 def eliminar_cliente(base_datos):
     nif = input("Ingrese el NIF del cliente que desea eliminar: ")
-    #TODO: eliminar el cliente con nif que se ha introducido
-    #Si existe mostrar por consola "Cliente con NIF XXXXXXXXX eliminado correctamente."
-    #Sino mostrar "No se encontró un cliente con NIF XXXXXXXXX en la base de datos."
-    ???
+
+    cliente = base_datos.get(nif)
+
+    if cliente:
+        base_datos.pop(nif)
+        print(f"Cliente con {nif} eliminado correctamente.")
+    else:
+        print(f"No se encontró un cliente con NIF {nif} en la base de datos.")
+    
 
 
 def mostrar_cliente(base_datos):
     nif = input("Ingrese el NIF del cliente que desea mostrar: ")
-    cliente = base_datos.get(nif)
+    cliente = base_datos.get(nif) # devuelve los valores de la clave nif
     if cliente:
         print("\nDatos del cliente:")
-        #TODO: Mostrar todos los datos del cliente
-        #en cada línea de consola mostrar el par clave: valor de sus datos...
-        ???
+
+        for claveDatos, valorDatos in cliente.items():
+            print(f"{claveDatos}: {valorDatos}")
+                  
     else:
         print(f"No se encontró un cliente con NIF {nif} en la base de datos.")
 
@@ -61,29 +74,32 @@ def mostrar_cliente(base_datos):
 def listar_clientes(base_datos):
     print("\nListado de todos los clientes:")
     for nif, cliente in base_datos.items():
-        print(f"NIF: {nif}, Nombre: {cliente['Nombre']}")
+        print(f"Nif: {nif}, Nombre: {cliente["nombre"]}")
+        
 
 
 def listar_clientes_preferentes(base_datos):
     print("\nListado de clientes preferentes:")
     for nif, cliente in base_datos.items():
-        if cliente['Preferente']:
+        if cliente['preferente']:
             print(f"NIF: {nif}, Nombre: {cliente['Nombre']}")
 
 
 def main():
     base_datos_clientes = {}
-
+    
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción (1-6): ")
 
         if opcion == '1':
             agregar_cliente(base_datos_clientes)
+            print(base_datos_clientes)
         elif opcion == '2':
             eliminar_cliente(base_datos_clientes)
         elif opcion == '3':
             mostrar_cliente(base_datos_clientes)
+            
         elif opcion == '4':
             listar_clientes(base_datos_clientes)
         elif opcion == '5':
