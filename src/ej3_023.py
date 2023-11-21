@@ -74,7 +74,7 @@ def mostrar_cliente(base_datos):
 def listar_clientes(base_datos):
     print("\nListado de todos los clientes:")
     for nif, cliente in base_datos.items():
-        print(f"Nif: {nif}, Nombre: {cliente["nombre"]}")
+        print(f"Nif: {nif}, Nombre: {cliente['nombre']}")
         
 
 

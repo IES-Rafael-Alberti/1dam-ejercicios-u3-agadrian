@@ -6,7 +6,7 @@ Escribir un programa que cree un diccionario de traducción español-inglés. El
 
 def crearDiccionario(palabras:str) -> dict:
 
-    # Hace split de (,) y crea una lista de pares de valores ["esp:ing", "esp:ing"]. Luego hace split de (:), y añade este split a una lista, o que quedaria una lista con varias listas de pares dentro [["esp","ing"], ["esp","ing"]] y por ultimo lo convierte a diccionario, que resulta en el return de la funcion
+    # Hace split de (,) y crea una lista de pares de valores ["esp:ing", "esp:ing"]. Luego hace split de (:), y añade este split a una lista, quedaria una lista con varias listas de pares dentro [["esp","ing"], ["esp","ing"]] y por ultimo lo convierte a diccionario, que resulta en el return de la funcion
     diccionario = dict((par.split(":") for par in palabras.split(",")))
 
     return diccionario

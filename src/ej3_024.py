@@ -28,20 +28,18 @@ def main():
         if linea:
             # Dividir la línea en valores usando el punto y coma como separador
             valores = linea.split(';')
+
+            ## cliente_info = {campo: valor for campo,valor in zip(nombres_campo, valores)}
+
             diccionario_cliente = {}
-            for i in range(len(nombres_campos)-1):
-                diccionario_cliente[nombres_campos[i+1]] = valores[i+1]
+
+            if len(nombres_campos) == len(valores): # comprobacion de que los valores sean la misma cantidad que los campos
+
+                for i in range(len(nombres_campos)-1):
+                    diccionario_cliente[nombres_campos[i+1]] = valores[i+1]
 
             directorio_clientes[valores[0]] = diccionario_cliente
 
-            #TODO: Crear un diccionario con la información del cliente, 
-            # pero hacerlo de otra forma sin usar la clase zip()
-            # Podéis depurar el programa para ver qué hace y así poder solucionarlo...
-            #cliente_info = {campo: valor for campo, valor in zip(nombres_campos, valores)}
-            #???
-
-            #TODO: Añadir el diccionario del cliente al diccionario directorio_clientes...
-            #???
 
     # Mostrar el diccionario resultante
     #print(directorio_clientes)
