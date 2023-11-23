@@ -78,16 +78,25 @@ def generar_tablero() -> list:
     """
     tablero = [[VACIO for _ in range(COLUMNAS)] for _ in range(FILAS)]
     #TODO: colocar las minas en el tablero
-    ??? tablero = ([])
-    calcular_numeros(tablero)
+    #??? tablero = ([])
+    colocar_minas(tablero)
+    #calcular_numeros(tablero)
     return tablero
 
 
-def colocar_minas:
+def colocar_minas(tablero:list):
     """
     Esta función coloca las minas en el tablero de juego. Se asegura de que el número de minas colocadas sea igual a NUMERO_MINAS.
     """
-
+    cont = 1
+    while cont <= NUMERO_MINAS:
+        fila = random.randint(0,7)
+        columna = random.randint(0,7)
+        if tablero[fila][columna] == VACIO:
+            tablero[fila][columna] == MINA
+            cont += 1
+    
+    
 
 
 def calcular_numeros(tablero):
@@ -99,7 +108,7 @@ def calcular_numeros(tablero):
         for columna in range(COLUMNAS):
             if tablero[fila][columna] != MINA:
                 numero_minas = contar_minas_adyacentes(tablero, fila, columna)
-                if numero_minas <= 0:
+                if numero_minas > 0:  # >
                     tablero[fila][columna] = str(numero_minas)
 
 
@@ -112,7 +121,13 @@ def contar_minas_adyacentes(tablero, fila, columna):
     :return: número de minas adyacentes a la celda(i,j) seleccionada
     """
     minas = 0
-    ???
+
+    for i in range(fila - 1, fila + 2):
+        for j in range(columna - 1, columna + 2):
+            if tablero[i][j] == MINA:
+                minas += 1
+
+    
     return minas
 
 
@@ -121,7 +136,21 @@ def imprimir_tablero(tablero):
     Esta función toma el tablero como argumento e imprime cada celda del tablero.
     :param tablero: tablero de juego
     """
-    ???
+    #???
+    print("  " + " ".join(str(i + 1) for i in range(COLUMNAS)))
+    for fila in range(FILAS):
+        print(str(fila + 1), end=" ")
+        for columna in range(COLUMNAS):
+            if (fila, columna) in celdas_reveladas:
+                if tablero[fila][columna] == VACIO:
+                    tablero[fila][columna] = VALOR_CELDA_DEFECTO
+                print(tablero[fila][columna], end=" ")
+            elif (fila, columna) in celdas_maracadas:
+                print(BANDERA, end=" ")
+            else:
+                print(VACIO, end=" ")
+        print()
+
 
 
 def imprimir_tablero_oculto(tablero, celdas_reveladas, celdas_maracadas):
@@ -218,8 +247,8 @@ def marcar_celda(celdas_marcadas, fila, columna):
     :param fila: fila de la celda seleccionada
     :param columna: columna de la celda seleccionada
     """
-    if (columna, fila) in celdas_marcadas:
-        celdas_marcadas.add((columna, fila))
+    if (fila, columna) in celdas_marcadas:
+        celdas_marcadas.add((fila, columna))
 
 
 def verificar_victoria(tablero, celdas_reveladas) -> bool:
@@ -243,7 +272,10 @@ def jugar():
     """
     Esta función ejecuta el juego. Primero genera un tablero de juego, luego pide al jugador que ingrese una acción, una fila y una columna. Luego, revela la celda seleccionada y verifica si el jugador ha ganado o perdido el juego. Si el jugador ha ganado o perdido, termina el juego. Si no, pide al jugador que ingrese una acción, una fila y una columna nuevamente.
     """
+
     tablero = generar_tablero()
+    #print(tablero)
+    #print(colocar_minas(tablero))
     celdas_reveladas = set()
     celdas_marcadas = set()
     terminar_juego = False
