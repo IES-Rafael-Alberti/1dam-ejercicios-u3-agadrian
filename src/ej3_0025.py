@@ -8,6 +8,30 @@ Escribir una función que reciba como parámetro una lista con el formato mencio
 """
 # meto en un conjunto la ultima posicion de cada tupla de la lista
 
+### OPERACIONES CONJUNTOS ###
+
+## UNION (valores de a y b) -->  |
+# a = {1,2,3}
+# b = {3,4,5}
+# union = a | b --> {1,2,3,4,5}
+
+## INTERSECCION (valores que tienen ambos conjuntos) --> &
+# a = {1,2,3}
+# b = {3,4,5}
+# intersccion = a & b --> {3}
+
+## DIFERENCIA (valores de a que no estan en b) --> -
+# a = {1,2,3}
+# b = {3,4,5}
+# diferencia = a - b  --> {1,2}
+
+## INTERSECCION  SIMETRICA (valores de a y b, pero que no estan en ambos)
+# a = {1,2,3}
+# b = {3,4,5}
+# interseccionSimetrica = a ^ b  --> {1,2,4,5}
+
+
+
 
 def domiciliosClientes(lista:list):
     domicilios = set()

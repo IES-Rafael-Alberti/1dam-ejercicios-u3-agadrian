@@ -48,9 +48,9 @@ def agregar_cliente(base_datos):
 def eliminar_cliente(base_datos):
     nif = input("Ingrese el NIF del cliente que desea eliminar: ")
 
-    cliente = base_datos.get(nif)
+    cliente = base_datos.get(nif) 
 
-    if cliente:
+    if cliente: # comprueba que exista los datos en la bbdd
         base_datos.pop(nif)
         print(f"Cliente con {nif} eliminado correctamente.")
     else:
