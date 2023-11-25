@@ -5,8 +5,8 @@ Escribir un programa que pida al usuario una palabra y muestre por pantalla si e
 """
 
 def pedirPalabra():
-    palabra = input("Palabra a comprobar si es palindromo: ")
-    palabra = list(palabra)
+    palabra = list(input("Palabra a comprobar si es palindromo: "))
+   
 
     return palabra
 

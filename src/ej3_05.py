@@ -5,7 +5,12 @@ Escribir un programa que almacene en una lista los números del 1 al 10 y los mu
 """
 
 from src.ej3_04 import mostrarListaFormateada
+import os
+import time
 
+
+def limpiarPantalla():
+    os.system("cls")
 
 def crearLista(numero:int) -> list:
     """
@@ -44,7 +49,15 @@ def main():
     lista = crearLista(numeros)
     lista2 = invertirLista(lista)
 
+    limpiarPantalla()
+    print("Invirtiendo lista.")
+    time.sleep(1)
+    limpiarPantalla()
+    print("Invirtiendo lista..")
+    time.sleep(1)
+    limpiarPantalla()
     print("Invirtiendo lista...")
+    time.sleep(1)
 
     print("Lista introducida: " + mostrarListaFormateada(lista))
     print("Lista invertida: " + mostrarListaFormateada(lista2))

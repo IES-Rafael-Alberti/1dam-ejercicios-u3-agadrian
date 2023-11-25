@@ -15,8 +15,8 @@ def pedirAsignaturas(numeroAsignaturas: int) -> list:
     Retorna:
             list: asignaturas introducidas
     """
-
-    return list(input("Introduce asignatura: ") for _ in range(numeroAsignaturas))
+    print("Introduce asignaturas: ")
+    return list(input("") for _ in range(numeroAsignaturas))
 
 
 
