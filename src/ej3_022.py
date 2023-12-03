@@ -39,7 +39,7 @@ def mostrarDiccionario(diccionario:dict):
     for k,v in diccionario.items():
         print(f"{k}  --  {v}€")
     
-    
+    #
 
 def main():
     diccionario = {}
